@@ -28,16 +28,16 @@ from ..data.dataset import Dataset, ParallelDataset
 from ..data.loader import load_binarized, set_dico_parameters
 
 
-N_CLASSES = {
-    'MNLI': 3,
-    'QQP': 2,
-    'QNLI': 2,
-    'SST-2': 2,
-    'CoLA': 2,
-    'MRPC': 2,
-    'RTE': 2,
-    'STS-B': 1,
-}
+#N_CLASSES = {
+#    'MNLI': 3,
+#    'QQP': 2,
+#    'QNLI': 2,
+#    'SST-2': 2,
+#    'CoLA': 2,
+#    'MRPC': 2,
+#    'RTE': 2,
+#    'STS-B': 1,
+#}
 
 
 logger = getLogger()
@@ -72,8 +72,8 @@ class GLUE:
 
         # task parameters
         self.task = task
-        params.out_features = N_CLASSES[task]
-        self.is_classif = task != 'STS-B'
+        params.out_features = 38 #the number of classes        #N_CLASSES[task]
+        #self.is_classif = task != 'STS-B'
 
         # load data
         self.data = self.load_data(task)
